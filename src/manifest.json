@@ -1,0 +1,44 @@
+{
+  "manifest_version": 3,
+  "name": "scratch_acc_switch",
+  "description": "Easily switch between Scratch accounts.",
+  "icons": {
+    "48": "images/icon_48.png",
+    "96": "images/icon_96.png",
+    "128": "images/icon_128.png"
+  },
+  "version": "1.0.0",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "@scratch_acc_switch.ryqjufq0xfffrog",
+      "data_collection_permissions": {
+        "required": [ "none" ]
+      }
+    },
+    "gecko_android": {}
+  },
+  "developer": {
+    "name": "@ryqjufq0xfffrog",
+    "url": "https://github.com/ryqjufq0xfffrog/"
+  },
+  "content_scripts": [
+    {
+      "matches": [ "https://scratch.mit.edu/*" ],
+      "js": [ "js/main.js" ],
+      "run_at": "document_idle",
+      "world": "ISOLATED"
+    }
+  ],
+  "background": {
+    "scripts": [ "js/background.js" ],
+    "service_worker": "js/background.js"
+  },
+  "options_page": "settings/options.html",
+  "permissions": [
+    "storage",
+    "cookies"
+  ],
+  "host_permissions": [
+    "https://scratch.mit.edu/"
+  ]
+}
